@@ -16,6 +16,7 @@ const Form = ({ onSubmit, handleChange }) => (
     <input type="text" id={10} onChange={handleChange} placeholder="verb, past tense" />
     <input type="text" id={11} onChange={handleChange} placeholder="adjective" />
     <button>Create Madlib</button>
+    <button type="reset" value="Clear Entries">Clear Entries</button>
   </form>
 );
 
