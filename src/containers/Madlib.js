@@ -17,8 +17,9 @@ export default class Madlib extends Component{
   }
 
   handleChange = ({ target }) => {
-    //this.setState({ [target.id]: target.value }, () => console.log(this.state));
-    this.setState({ wordsArray[target.id] = target.value }, () => console.log(this.state));
+    const newStateArray = this.state.wordsArray.slice();
+    newStateArray[target.id] = target.value;
+    this.setState({ wordsArray: newStateArray });
   }
 
   render() {
@@ -26,7 +27,7 @@ export default class Madlib extends Component{
     return (
       <>
         {!showResult && <Form onSubmit={this.handleSubmit} handleChange={this.handleChange} />}
-        {showResult && <Result words={[]} closeResult={this.toggleResult} />}
+        {showResult && <Result words={this.state.wordsArray} closeResult={this.toggleResult} />}
       </>
     );
   }
